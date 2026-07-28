@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HN Dark Mode</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <div class="brand" aria-hidden="true">Y</div>
+      <div class="copy">
+        <h1>HN Dark Mode</h1>
+        <p id="status">Dark mode is on</p>
+      </div>
+      <label class="switch">
+        <input id="dark-mode-toggle" type="checkbox" role="switch" aria-describedby="status">
+        <span class="slider"></span>
+        <span class="sr-only">Enable dark mode</span>
+      </label>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

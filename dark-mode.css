@@ -1,0 +1,114 @@
+:root[data-hn-dark-mode] {
+  color-scheme: dark;
+  --hn-background: #111418;
+  --hn-surface: #191d22;
+  --hn-border: #30363d;
+  --hn-text: #d6d9dd;
+  --hn-muted: #8b949e;
+  --hn-link: #e6edf3;
+  --hn-accent: #ff6600;
+  --hn-visited: #9da7b3;
+}
+
+:root[data-hn-dark-mode],
+:root[data-hn-dark-mode] body,
+:root[data-hn-dark-mode] #hnmain {
+  background: var(--hn-background) !important;
+  color: var(--hn-text) !important;
+}
+
+:root[data-hn-dark-mode] #hnmain {
+  border: 1px solid var(--hn-border);
+}
+
+:root[data-hn-dark-mode] #hnmain > tbody > tr:first-child > td {
+  background: #c94f00 !important;
+}
+
+:root[data-hn-dark-mode] .titleline > a,
+:root[data-hn-dark-mode] .comment-tree .commtext,
+:root[data-hn-dark-mode] .fatitem .title,
+:root[data-hn-dark-mode] .fatitem .toptext,
+:root[data-hn-dark-mode] .c00,
+:root[data-hn-dark-mode] .c5a,
+:root[data-hn-dark-mode] .c73,
+:root[data-hn-dark-mode] .c82,
+:root[data-hn-dark-mode] .c88,
+:root[data-hn-dark-mode] .c9c,
+:root[data-hn-dark-mode] .cae,
+:root[data-hn-dark-mode] .cbe,
+:root[data-hn-dark-mode] .cce,
+:root[data-hn-dark-mode] .cdd {
+  color: var(--hn-link) !important;
+}
+
+:root[data-hn-dark-mode] .titleline > a:visited {
+  color: var(--hn-visited) !important;
+}
+
+:root[data-hn-dark-mode] .commtext a:link,
+:root[data-hn-dark-mode] .toptext a:link {
+  color: #79c0ff !important;
+}
+
+:root[data-hn-dark-mode] .commtext a:visited,
+:root[data-hn-dark-mode] .toptext a:visited {
+  color: #c9a7eb !important;
+}
+
+:root[data-hn-dark-mode] .subtext,
+:root[data-hn-dark-mode] .subtext a,
+:root[data-hn-dark-mode] .rank,
+:root[data-hn-dark-mode] .sitebit,
+:root[data-hn-dark-mode] .sitebit a,
+:root[data-hn-dark-mode] .comhead,
+:root[data-hn-dark-mode] .comhead a,
+:root[data-hn-dark-mode] .yclinks,
+:root[data-hn-dark-mode] .yclinks a,
+:root[data-hn-dark-mode] .age a {
+  color: var(--hn-muted) !important;
+}
+
+:root[data-hn-dark-mode] a,
+:root[data-hn-dark-mode] .morelink,
+:root[data-hn-dark-mode] .pagetop a:visited {
+  color: var(--hn-text) !important;
+}
+
+:root[data-hn-dark-mode] .pagetop,
+:root[data-hn-dark-mode] .pagetop a,
+:root[data-hn-dark-mode] .hnname a {
+  color: #17130f !important;
+}
+
+:root[data-hn-dark-mode] input,
+:root[data-hn-dark-mode] textarea,
+:root[data-hn-dark-mode] select,
+:root[data-hn-dark-mode] button {
+  background: var(--hn-surface);
+  border: 1px solid var(--hn-border);
+  color: var(--hn-text);
+}
+
+:root[data-hn-dark-mode] input[type="submit"],
+:root[data-hn-dark-mode] button {
+  cursor: pointer;
+  padding: 3px 8px;
+}
+
+:root[data-hn-dark-mode] textarea:focus,
+:root[data-hn-dark-mode] input:focus {
+  border-color: var(--hn-accent);
+  outline: 1px solid var(--hn-accent);
+}
+
+:root[data-hn-dark-mode] img[src="s.gif"] {
+  opacity: 0.7;
+}
+
+@media (max-width: 750px) {
+  :root[data-hn-dark-mode] #hnmain {
+    border-left: 0;
+    border-right: 0;
+  }
+}

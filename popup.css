@@ -1,0 +1,100 @@
+:root {
+  color-scheme: dark;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #111418;
+  color: #e6edf3;
+  margin: 0;
+  min-width: 290px;
+}
+
+main {
+  align-items: center;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 38px 1fr auto;
+  padding: 18px;
+}
+
+.brand {
+  align-items: center;
+  background: #ff6600;
+  border: 1px solid #fff;
+  display: flex;
+  font-size: 23px;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+h1 {
+  font-size: 15px;
+  line-height: 1.2;
+  margin: 0 0 4px;
+}
+
+p {
+  color: #8b949e;
+  font-size: 12px;
+  margin: 0;
+}
+
+.switch {
+  cursor: pointer;
+  display: inline-block;
+  height: 24px;
+  position: relative;
+  width: 44px;
+}
+
+.switch input {
+  height: 1px;
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.slider {
+  background: #484f58;
+  border-radius: 999px;
+  inset: 0;
+  position: absolute;
+  transition: background 150ms ease;
+}
+
+.slider::before {
+  background: #fff;
+  border-radius: 50%;
+  content: "";
+  height: 18px;
+  left: 3px;
+  position: absolute;
+  top: 3px;
+  transition: transform 150ms ease;
+  width: 18px;
+}
+
+input:checked + .slider {
+  background: #ff6600;
+}
+
+input:checked + .slider::before {
+  transform: translateX(20px);
+}
+
+input:focus-visible + .slider {
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
