@@ -102,7 +102,7 @@ function renderPosts(posts) {
     votes.title = `${points} upvotes`;
 
     title.className = "post-title";
-    title.href = post.url || `https://news.ycombinator.com/item?id=${post.objectID}`;
+    title.href = `https://news.ycombinator.com/item?id=${post.objectID}`;
     title.target = "_blank";
     title.rel = "noreferrer";
     title.textContent = post.title;
