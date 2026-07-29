@@ -7,10 +7,10 @@ body {
   background: #111418;
   color: #e6edf3;
   margin: 0;
-  min-width: 290px;
+  width: 390px;
 }
 
-main {
+.toolbar {
   align-items: center;
   display: grid;
   gap: 12px;
@@ -39,6 +39,94 @@ p {
   color: #8b949e;
   font-size: 12px;
   margin: 0;
+}
+
+.top-posts {
+  border-top: 1px solid #30363d;
+  padding: 14px 18px 16px;
+}
+
+.section-heading {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: 13px;
+  margin: 0;
+}
+
+.section-heading span,
+.column-headings {
+  color: #8b949e;
+  font-size: 10px;
+}
+
+.column-headings,
+#top-post-list li {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 42px minmax(0, 1fr) 38px;
+}
+
+.column-headings {
+  padding-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.column-headings span:last-child,
+.post-ratio {
+  text-align: right;
+}
+
+#top-post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#top-post-list li {
+  align-items: start;
+  border-top: 1px solid #252a30;
+  padding: 9px 0;
+}
+
+#top-post-list li:last-child {
+  padding-bottom: 0;
+}
+
+.post-votes,
+.post-ratio {
+  color: #ff8a3d;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+.post-title {
+  color: #e6edf3;
+  font-size: 12px;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.post-title:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.post-title:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid #58a6ff;
+  outline-offset: 2px;
+}
+
+#top-post-list .message {
+  color: #8b949e;
+  display: block;
+  font-size: 12px;
 }
 
 .switch {

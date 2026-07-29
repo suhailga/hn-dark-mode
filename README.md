@@ -1,6 +1,6 @@
 # HN Dark Mode
 
-A simple Chrome/Brave extension with toggleable dark mode for [Hacker News](https://news.ycombinator.com/).
+A Chrome/Brave extension with toggleable dark mode and the top [Hacker News](https://news.ycombinator.com/) posts from the last 24 hours.
 
 ## Install
 

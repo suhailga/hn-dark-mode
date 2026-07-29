@@ -8,16 +8,33 @@
   </head>
   <body>
     <main>
-      <div class="brand" aria-hidden="true">Y</div>
-      <div class="copy">
-        <h1>HN Dark Mode</h1>
-        <p id="status">Dark mode is on</p>
-      </div>
-      <label class="switch">
-        <input id="dark-mode-toggle" type="checkbox" role="switch" aria-describedby="status">
-        <span class="slider"></span>
-        <span class="sr-only">Enable dark mode</span>
-      </label>
+      <header class="toolbar">
+        <div class="brand" aria-hidden="true">Y</div>
+        <div class="copy">
+          <h1>HN Dark Mode</h1>
+          <p id="status">Dark mode is on</p>
+        </div>
+        <label class="switch">
+          <input id="dark-mode-toggle" type="checkbox" role="switch" aria-describedby="status">
+          <span class="slider"></span>
+          <span class="sr-only">Enable dark mode</span>
+        </label>
+      </header>
+
+      <section class="top-posts" aria-labelledby="top-posts-heading">
+        <div class="section-heading">
+          <h2 id="top-posts-heading">Top posts</h2>
+          <span>Last 24 hours</span>
+        </div>
+        <div class="column-headings" aria-hidden="true">
+          <span>Votes</span>
+          <span>Title</span>
+          <span>Ratio</span>
+        </div>
+        <ol id="top-post-list" aria-live="polite">
+          <li class="message">Loading posts...</li>
+        </ol>
+      </section>
     </main>
     <script src="popup.js"></script>
   </body>
