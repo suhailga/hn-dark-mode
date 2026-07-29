@@ -2,31 +2,53 @@ const toggle = document.querySelector("#dark-mode-toggle");
 const status = document.querySelector("#status");
 const postList = document.querySelector("#top-post-list");
 const timeWindowButtons = document.querySelectorAll("[data-window]");
-const TOP_POST_COUNT = 3;
+const postCountInput = document.querySelector("#post-count");
+const DEFAULT_POST_COUNT = 5;
+const MIN_POST_COUNT = 1;
+const MAX_POST_COUNT = 30;
 const DEFAULT_TIME_WINDOW = "12h";
 const TIME_WINDOWS = {
   "12h": 12 * 60 * 60,
   "1d": 24 * 60 * 60,
 };
 let activeRequest;
+let selectedPostCount = DEFAULT_POST_COUNT;
+let selectedTimeWindow = DEFAULT_TIME_WINDOW;
 
 function updateStatus(enabled) {
   status.textContent = `Dark mode is ${enabled ? "on" : "off"}`;
 }
 
 chrome.storage.sync.get(
-  { enabled: true, topPostsTimeWindow: DEFAULT_TIME_WINDOW },
-  ({ enabled, topPostsTimeWindow }) => {
+  {
+    enabled: true,
+    topPostsCount: DEFAULT_POST_COUNT,
+    topPostsTimeWindow: DEFAULT_TIME_WINDOW,
+  },
+  ({ enabled, topPostsCount, topPostsTimeWindow }) => {
     const timeWindow = TIME_WINDOWS[topPostsTimeWindow]
       ? topPostsTimeWindow
       : DEFAULT_TIME_WINDOW;
+    const postCount = normalizePostCount(topPostsCount);
 
     toggle.checked = enabled;
     updateStatus(enabled);
+    selectedPostCount = postCount;
+    selectedTimeWindow = timeWindow;
+    postCountInput.value = postCount;
     selectTimeWindow(timeWindow);
-    loadTopPosts(timeWindow);
+    loadTopPosts(timeWindow, postCount);
   },
 );
+
+function normalizePostCount(value) {
+  const postCount = Number.parseInt(value, 10);
+  if (!Number.isFinite(postCount)) {
+    return DEFAULT_POST_COUNT;
+  }
+
+  return Math.min(MAX_POST_COUNT, Math.max(MIN_POST_COUNT, postCount));
+}
 
 function selectTimeWindow(timeWindow) {
   for (const button of timeWindowButtons) {
@@ -37,11 +59,20 @@ function selectTimeWindow(timeWindow) {
 for (const button of timeWindowButtons) {
   button.addEventListener("click", () => {
     const timeWindow = button.dataset.window;
+    selectedTimeWindow = timeWindow;
     selectTimeWindow(timeWindow);
     chrome.storage.sync.set({ topPostsTimeWindow: timeWindow });
-    loadTopPosts(timeWindow);
+    loadTopPosts(timeWindow, selectedPostCount);
   });
 }
+
+postCountInput.addEventListener("change", () => {
+  const postCount = normalizePostCount(postCountInput.value);
+  selectedPostCount = postCount;
+  postCountInput.value = postCount;
+  chrome.storage.sync.set({ topPostsCount: postCount });
+  loadTopPosts(selectedTimeWindow, postCount);
+});
 
 toggle.addEventListener("change", () => {
   const enabled = toggle.checked;
@@ -87,7 +118,7 @@ function renderPosts(posts) {
   postList.replaceChildren(...rows);
 }
 
-async function loadTopPosts(timeWindow) {
+async function loadTopPosts(timeWindow, postCount) {
   activeRequest?.abort();
   const request = new AbortController();
   activeRequest = request;
@@ -95,7 +126,7 @@ async function loadTopPosts(timeWindow) {
   const endpoint = new URL("https://hn.algolia.com/api/v1/search");
   endpoint.searchParams.set("tags", "story");
   endpoint.searchParams.set("numericFilters", `created_at_i>${cutoff}`);
-  endpoint.searchParams.set("hitsPerPage", TOP_POST_COUNT);
+  endpoint.searchParams.set("hitsPerPage", postCount);
 
   const loading = document.createElement("li");
   const loader = document.createElement("span");

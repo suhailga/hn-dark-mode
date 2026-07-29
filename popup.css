@@ -63,6 +63,12 @@ h2 {
   font-size: 10px;
 }
 
+.post-filters {
+  align-items: center;
+  display: flex;
+  gap: 7px;
+}
+
 .time-window {
   background: #191d22;
   border: 1px solid #30363d;
@@ -92,6 +98,30 @@ h2 {
 .time-window button:focus-visible {
   outline: 2px solid #58a6ff;
   outline-offset: -2px;
+}
+
+.post-count {
+  align-items: center;
+  color: #8b949e;
+  display: flex;
+  font-size: 10px;
+  gap: 4px;
+}
+
+.post-count input {
+  background: #191d22;
+  border: 1px solid #30363d;
+  border-radius: 4px;
+  color: #e6edf3;
+  font-size: 10px;
+  padding: 4px;
+  text-align: center;
+  width: 30px;
+}
+
+.post-count input:focus-visible {
+  border-color: #58a6ff;
+  outline: 1px solid #58a6ff;
 }
 
 .column-headings,

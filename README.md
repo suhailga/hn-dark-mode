@@ -1,6 +1,6 @@
 # HN Dark Mode
 
-A Chrome/Brave extension with toggleable dark mode and top [Hacker News](https://news.ycombinator.com/) posts over 12-hour and 1-day windows.
+A Chrome/Brave extension with toggleable dark mode and a configurable number of top [Hacker News](https://news.ycombinator.com/) posts over 12-hour and 1-day windows.
 
 ## Install
 

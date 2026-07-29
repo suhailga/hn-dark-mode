@@ -24,9 +24,15 @@
       <section class="top-posts" aria-labelledby="top-posts-heading">
         <div class="section-heading">
           <h2 id="top-posts-heading">Top posts</h2>
-          <div class="time-window" role="group" aria-label="Top posts time window">
-            <button type="button" data-window="12h" aria-pressed="true">12 hours</button>
-            <button type="button" data-window="1d" aria-pressed="false">1 day</button>
+          <div class="post-filters">
+            <div class="time-window" role="group" aria-label="Top posts time window">
+              <button type="button" data-window="12h" aria-pressed="true">12 hours</button>
+              <button type="button" data-window="1d" aria-pressed="false">1 day</button>
+            </div>
+            <label class="post-count">
+              <input id="post-count" type="number" min="1" max="30" value="5" aria-label="Number of top posts">
+              <span>posts</span>
+            </label>
           </div>
         </div>
         <div class="column-headings" aria-hidden="true">
