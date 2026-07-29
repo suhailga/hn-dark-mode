@@ -58,10 +58,40 @@ h2 {
   margin: 0;
 }
 
-.section-heading span,
 .column-headings {
   color: #8b949e;
   font-size: 10px;
+}
+
+.time-window {
+  background: #191d22;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  display: flex;
+  overflow: hidden;
+}
+
+.time-window button {
+  background: transparent;
+  border: 0;
+  color: #8b949e;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 4px 7px;
+}
+
+.time-window button + button {
+  border-left: 1px solid #30363d;
+}
+
+.time-window button[aria-pressed="true"] {
+  background: #ff6600;
+  color: #17130f;
+}
+
+.time-window button:focus-visible {
+  outline: 2px solid #58a6ff;
+  outline-offset: -2px;
 }
 
 .column-headings,
@@ -124,9 +154,36 @@ h2 {
 }
 
 #top-post-list .message {
+  align-items: center;
   color: #8b949e;
-  display: block;
+  display: flex;
   font-size: 12px;
+  gap: 7px;
+}
+
+.loader {
+  animation: loader-pulse 800ms ease-in-out infinite alternate;
+  border-bottom: 8px solid #ff6600;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  height: 0;
+  width: 0;
+}
+
+@keyframes loader-pulse {
+  from {
+    opacity: 0.35;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    animation: none;
+  }
 }
 
 .switch {

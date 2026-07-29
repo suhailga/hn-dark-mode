@@ -24,7 +24,10 @@
       <section class="top-posts" aria-labelledby="top-posts-heading">
         <div class="section-heading">
           <h2 id="top-posts-heading">Top posts</h2>
-          <span>Last 24 hours</span>
+          <div class="time-window" role="group" aria-label="Top posts time window">
+            <button type="button" data-window="12h" aria-pressed="true">12 hours</button>
+            <button type="button" data-window="1d" aria-pressed="false">1 day</button>
+          </div>
         </div>
         <div class="column-headings" aria-hidden="true">
           <span>Votes</span>
@@ -32,7 +35,10 @@
           <span>Ratio</span>
         </div>
         <ol id="top-post-list" aria-live="polite">
-          <li class="message">Loading posts...</li>
+          <li class="message">
+            <span class="loader" aria-hidden="true"></span>
+            Loading posts...
+          </li>
         </ol>
       </section>
     </main>

@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "HN Dark Mode",
-  "version": "1.1.0",
-  "description": "Dark mode and the top posts from the last 24 hours for Hacker News.",
+  "version": "1.2.0",
+  "description": "Dark mode and top posts over 12-hour and 1-day windows for Hacker News.",
   "permissions": ["storage"],
   "host_permissions": ["https://hn.algolia.com/*"],
   "icons": {
